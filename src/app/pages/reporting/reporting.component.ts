@@ -8,7 +8,6 @@ import {
   FormattedData,
   getBarChartData,
   getDateObjs,
-  Stats,
 } from './reporting';
 import { ReportingService } from './reporting.service';
 

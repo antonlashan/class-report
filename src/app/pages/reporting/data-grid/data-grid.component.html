@@ -1,41 +1,43 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Date Completed</th>
-      <th scope="col">Content</th>
-      <th scope="col">Type</th>
-      <th scope="col">Skill</th>
-      <th scope="col">Result</th>
-      <th scope="col">Time Spent</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container
-      *ngIf="activities | filterStudents: filter.studentName; let items"
-    >
-      <tr *ngFor="let activity of items">
-        <td>
-          {{ activity.date | date }}
-        </td>
-        <td>{{ activity.content }}</td>
-        <td>{{ activity.type }}</td>
-        <td>{{ activity.skill }}</td>
-        <td>
-          <span [ngStyle]="{ color: strenthColors[activity.strength] }"
-            >{{ activity.value }}%</span
-          >
-        </td>
-        <td>{{ activity.time }}</td>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Date Completed</th>
+        <th scope="col">Content</th>
+        <th scope="col">Type</th>
+        <th scope="col">Skill</th>
+        <th scope="col">Result</th>
+        <th scope="col">Time Spent</th>
       </tr>
-      <tr *ngIf="items.length === 0">
-        <td colspan="6">
-          <span *ngIf="filter.studentName; else defaultMsg"
-            >No content has been completed by {{ filter.studentName }} for
-            {{ fromDate | date }} to {{ toDate | date }}</span
-          >
-          <ng-template #defaultMsg>No data</ng-template>
-        </td>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <ng-container
+        *ngIf="activities | filterStudents: filter.studentName; let items"
+      >
+        <tr *ngFor="let activity of items">
+          <td>
+            {{ activity.date | date }}
+          </td>
+          <td>{{ activity.content }}</td>
+          <td>{{ activity.type }}</td>
+          <td>{{ activity.skill }}</td>
+          <td>
+            <span [ngStyle]="{ color: strenthColors[activity.strength] }"
+              >{{ activity.value }}%</span
+            >
+          </td>
+          <td>{{ activity.time }}</td>
+        </tr>
+        <tr *ngIf="items.length === 0">
+          <td colspan="6">
+            <span *ngIf="filter.studentName; else defaultMsg"
+              >No content has been completed by {{ filter.studentName }} for
+              {{ fromDate | date }} to {{ toDate | date }}</span
+            >
+            <ng-template #defaultMsg>No data</ng-template>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
