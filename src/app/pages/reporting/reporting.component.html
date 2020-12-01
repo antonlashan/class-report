@@ -1,1 +1,18 @@
-<p>reporting works!</p>
+<h1 class="h3 mb-5 text-center">Reporting - Student Snapshot</h1>
+
+<div class="mb-5">
+  <app-filter
+    [classes]="classes"
+    (changeFilter)="onChangeFilter($event)"
+  ></app-filter>
+</div>
+<div class="mb-5">
+  <app-stats *ngIf="chartData" [chartData]="chartData"></app-stats>
+</div>
+<div>
+  <app-data-grid
+    *ngIf="activities"
+    [activities]="activities"
+    [selectedStudent]="selectedStudent"
+  ></app-data-grid>
+</div>

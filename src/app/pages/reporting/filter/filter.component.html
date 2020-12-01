@@ -1,0 +1,40 @@
+<div class="row justify-content-between">
+  <div class="col-12 col-lg-6">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div>
+          <label for="classroom">Class</label>
+          <select
+            class="form-control"
+            id="classroom"
+            #classroomSelect
+            (change)="onChangeClass(classroomSelect.value)"
+          >
+            <option value="">Select a class</option>
+            <option *ngFor="let c of classNames" [value]="c">{{ c }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div>
+          <label for="student">Student</label>
+          <select
+            class="form-control"
+            id="student"
+            #studentSelect
+            (change)="onChangeStudent(studentSelect.value)"
+          >
+            <option value="">Select a student</option>
+            <option *ngFor="let s of studentNames" [value]="s">{{ s }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-6">
+    <label for="datepicker">Date Range</label>
+    <app-datepicker-range
+      (changeDate)="onChangeDate($event)"
+    ></app-datepicker-range>
+  </div>
+</div>

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthLayoutComponent } from './authenticate.component';
+import { DataGridComponent } from './data-grid.component';
 
-describe('AuthenticateComponent', () => {
-  let component: AuthLayoutComponent;
-  let fixture: ComponentFixture<AuthLayoutComponent>;
+describe('DataGridComponent', () => {
+  let component: DataGridComponent;
+  let fixture: ComponentFixture<DataGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AuthLayoutComponent],
+      declarations: [DataGridComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthLayoutComponent);
+    fixture = TestBed.createComponent(DataGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

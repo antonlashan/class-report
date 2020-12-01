@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthLayoutComponent } from './authenticate.component';
+import { DatepickerRangeComponent } from './datepicker-range.component';
 
-describe('AuthenticateComponent', () => {
-  let component: AuthLayoutComponent;
-  let fixture: ComponentFixture<AuthLayoutComponent>;
+describe('DatepickerRangeComponent', () => {
+  let component: DatepickerRangeComponent;
+  let fixture: ComponentFixture<DatepickerRangeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AuthLayoutComponent],
+      declarations: [DatepickerRangeComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthLayoutComponent);
+    fixture = TestBed.createComponent(DatepickerRangeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
