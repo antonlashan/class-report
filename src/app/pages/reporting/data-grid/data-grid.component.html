@@ -15,7 +15,7 @@
     >
       <tr *ngFor="let activity of items">
         <td>
-          {{ activity.date }}
+          {{ activity.date | date }}
         </td>
         <td>{{ activity.content }}</td>
         <td>{{ activity.type }}</td>

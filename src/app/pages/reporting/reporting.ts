@@ -34,7 +34,7 @@ export interface Filter {
 
 export interface FormattedData {
   content: string;
-  date: string;
+  date: Date;
   value: number;
   student: string;
   time: string;
@@ -78,9 +78,10 @@ export const normalizeData = (
       act.attempts.weeks.forEach((date, index) => {
         if (checkDates(date, from, to)) {
           const value = +act.attempts.values[index];
+          const [day, month, year] = date.split('/');
           formattedData.push({
             content: act.content,
-            date,
+            date: createDateObj(+year, +month, +day),
             value,
             student: act.student,
             time: act.time,
