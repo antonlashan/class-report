@@ -6,6 +6,10 @@
     (changeFilter)="onChangeFilter($event)"
   ></app-filter>
 </div>
+<div class="mb-5" *ngIf="chartData">
+  <h6>Overall results for period</h6>
+  <strong>{{ dateFrom | date }} - {{ dateTo | date }}</strong>
+</div>
 <div class="mb-5">
   <app-stats *ngIf="chartData" [chartData]="chartData"></app-stats>
 </div>

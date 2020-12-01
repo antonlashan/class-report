@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { BarChartData } from '../reporting';
+import { BarChartData, strenthColors } from '../reporting';
 
 @Component({
   selector: 'app-stats',
@@ -9,4 +9,13 @@ import { BarChartData } from '../reporting';
 })
 export class StatsComponent {
   @Input() chartData!: BarChartData[];
+  strenthColors = strenthColors();
+  colorScheme = {
+    domain: [
+      this.strenthColors.excellent,
+      this.strenthColors.good,
+      this.strenthColors.ok,
+      this.strenthColors.weak,
+    ],
+  };
 }

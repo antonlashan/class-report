@@ -1,5 +1,10 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { Filter, FormattedData, getDateObjs } from '../reporting';
+import {
+  Filter,
+  FormattedData,
+  getDateObjs,
+  strenthColors,
+} from '../reporting';
 
 @Component({
   selector: 'app-data-grid',
@@ -9,6 +14,7 @@ import { Filter, FormattedData, getDateObjs } from '../reporting';
 export class DataGridComponent implements OnChanges {
   @Input() activities!: FormattedData[];
   @Input() filter!: Filter;
+  strenthColors = strenthColors();
 
   fromDate!: Date;
   toDate!: Date;

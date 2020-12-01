@@ -7,6 +7,7 @@ import {
   Filter,
   FormattedData,
   getBarChartData,
+  getDateObjs,
   Stats,
 } from './reporting';
 import { ReportingService } from './reporting.service';
@@ -24,6 +25,8 @@ export class ReportingComponent implements OnInit, OnDestroy {
   activities?: FormattedData[];
   chartData?: BarChartData[];
   filter!: Filter;
+  dateFrom?: Date;
+  dateTo?: Date;
   constructor(private reportingService: ReportingService) {}
 
   ngOnInit() {
@@ -43,8 +46,14 @@ export class ReportingComponent implements OnInit, OnDestroy {
 
   onChangeFilter(filter: Filter) {
     this.filter = filter;
+
     if (filter.lastChange !== 'student') {
       if (filter.className && filter.daterange) {
+        // tslint:disable-next-line: no-non-null-assertion
+        const { from, to } = getDateObjs(this.filter.daterange!);
+        this.dateFrom = from;
+        this.dateTo = to;
+
         if (typeof this.activitySubs !== 'undefined') {
           this.activitySubs.unsubscribe();
         }

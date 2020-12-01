@@ -20,7 +20,11 @@
         <td>{{ activity.content }}</td>
         <td>{{ activity.type }}</td>
         <td>{{ activity.skill }}</td>
-        <td>{{ activity.value }}</td>
+        <td>
+          <span [ngStyle]="{ color: strenthColors[activity.strength] }"
+            >{{ activity.value }}%</span
+          >
+        </td>
         <td>{{ activity.time }}</td>
       </tr>
       <tr *ngIf="items.length === 0">

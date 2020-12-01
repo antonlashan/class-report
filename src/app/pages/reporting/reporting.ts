@@ -50,6 +50,15 @@ export enum Strength {
   weak = 'weak',
 }
 
+export const strenthColors = () => {
+  return {
+    [Strength.excellent]: '#40bf00',
+    [Strength.good]: '#b2bf00',
+    [Strength.ok]: '#bfa000',
+    [Strength.weak]: '#bf4800',
+  };
+};
+
 export interface Stats {
   categories: {
     [key: string]: number;
@@ -142,17 +151,16 @@ export const getBarChartData = (data: FormattedData[]): BarChartData[] => {
 
   const stat = data.reduce(
     (acc, val) => {
-      acc.categories[val.strength] += val.value;
-      acc.tot += val.value;
+      acc.categories[val.strength] += 1;
       return acc;
     },
-    { categories: initObj, tot: 0 }
+    { categories: initObj }
   );
   const results: BarChartData[] = [];
   for (const [cat, value] of Object.entries(stat.categories)) {
     results.push({
       name: cat,
-      value: stat.tot ? Math.round((value / stat.tot) * 100) : 0,
+      value,
     });
   }
 
