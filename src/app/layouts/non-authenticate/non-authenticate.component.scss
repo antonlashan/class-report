@@ -1,0 +1,11 @@
+.container {
+  height: 100%;
+  .main {
+    height: 100%;
+    max-width: 330px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

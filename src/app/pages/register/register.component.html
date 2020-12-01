@@ -1,1 +1,60 @@
-<p>register works!</p>
+<h1 class="h3 mb-3 text-center">Register</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form.controls as f">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      formControlName="name"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+    />
+    <div *ngIf="submitted && f.name.errors as e" class="invalid-feedback">
+      <div *ngIf="e.required">Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+    />
+    <div *ngIf="submitted && f.email.errors as e" class="invalid-feedback">
+      <div *ngIf="e.required">Email is required</div>
+      <div *ngIf="e.email">Invalid email</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+    />
+    <div *ngIf="submitted && f.password.errors as e" class="invalid-feedback">
+      <div *ngIf="e.required">Password is required</div>
+      <div *ngIf="e.minlength">Password must be at least 3 characters</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Password confirmation</label>
+    <input
+      type="password"
+      formControlName="confirmPassword"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+    />
+    <div
+      *ngIf="submitted && f.confirmPassword.errors as e"
+      class="invalid-feedback"
+    >
+      <div *ngIf="e.notSame">Password confirmation should match</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">Register</button>
+    <a routerLink="/login" class="btn btn-link">Cancel</a>
+  </div>
+</form>

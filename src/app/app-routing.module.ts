@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './auth/auth.guard';
 import { AuthLayoutComponent } from './layouts/authenticate/authenticate.component';
 import { NonAuthLayoutComponent } from './layouts/non-authenticate/non-authenticate.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
+  },
   {
     path: '',
     component: NonAuthLayoutComponent,
@@ -26,6 +32,7 @@ const routes: Routes = [
   {
     path: '',
     component: AuthLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'reporting',
@@ -36,6 +43,7 @@ const routes: Routes = [
       },
     ],
   },
+  // { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
