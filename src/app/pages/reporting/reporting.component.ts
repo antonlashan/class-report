@@ -22,8 +22,8 @@ export class ReportingComponent implements OnInit, OnDestroy {
 
   classes: Classroom[] = [];
   activities?: FormattedData[];
-  selectedStudent: string | null = null;
   chartData?: BarChartData[];
+  filter!: Filter;
   constructor(private reportingService: ReportingService) {}
 
   ngOnInit() {
@@ -42,6 +42,7 @@ export class ReportingComponent implements OnInit, OnDestroy {
   }
 
   onChangeFilter(filter: Filter) {
+    this.filter = filter;
     if (filter.lastChange !== 'student') {
       if (filter.className && filter.daterange) {
         if (typeof this.activitySubs !== 'undefined') {
@@ -55,7 +56,5 @@ export class ReportingComponent implements OnInit, OnDestroy {
           });
       }
     }
-
-    this.selectedStudent = filter.studentName;
   }
 }

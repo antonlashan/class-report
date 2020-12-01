@@ -104,7 +104,7 @@ const createDateObj = (year: number, month: number, day: number) => {
   return new Date(newYr, month - 1, day);
 };
 
-const getDateObjs = ({ from, to }: PickerData) => {
+export const getDateObjs = ({ from, to }: PickerData) => {
   return {
     from: createDateObj(from.year, from.month, from.day),
     to: createDateObj(to.year, to.month, to.day),
@@ -151,7 +151,7 @@ export const getBarChartData = (data: FormattedData[]): BarChartData[] => {
   for (const [cat, value] of Object.entries(stat.categories)) {
     results.push({
       name: cat,
-      value: Math.round((value / stat.tot) * 100),
+      value: stat.tot ? Math.round((value / stat.tot) * 100) : 0,
     });
   }
 

@@ -10,15 +10,28 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let activity of activities | filterStudents: selectedStudent">
-      <td>
-        {{ activity.date }}
-      </td>
-      <td>{{ activity.content }}</td>
-      <td>{{ activity.type }}</td>
-      <td>{{ activity.skill }}</td>
-      <td>{{ activity.value }}</td>
-      <td>{{ activity.time }}</td>
-    </tr>
+    <ng-container
+      *ngIf="activities | filterStudents: filter.studentName; let items"
+    >
+      <tr *ngFor="let activity of items">
+        <td>
+          {{ activity.date }}
+        </td>
+        <td>{{ activity.content }}</td>
+        <td>{{ activity.type }}</td>
+        <td>{{ activity.skill }}</td>
+        <td>{{ activity.value }}</td>
+        <td>{{ activity.time }}</td>
+      </tr>
+      <tr *ngIf="items.length === 0">
+        <td colspan="6">
+          <span *ngIf="filter.studentName; else defaultMsg"
+            >No content has been completed by {{ filter.studentName }} for
+            {{ fromDate | date }} to {{ toDate | date }}</span
+          >
+          <ng-template #defaultMsg>No data</ng-template>
+        </td>
+      </tr>
+    </ng-container>
   </tbody>
 </table>
