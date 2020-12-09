@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { BarChartData, strenthColors } from '../reporting';
 
@@ -6,6 +6,7 @@ import { BarChartData, strenthColors } from '../reporting';
   selector: 'app-stats',
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatsComponent {
   @Input() chartData!: BarChartData[];

@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import {
@@ -15,6 +21,7 @@ import { ReportingService } from './reporting.service';
   selector: 'app-reporting',
   templateUrl: './reporting.component.html',
   styleUrls: ['./reporting.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReportingComponent implements OnInit, OnDestroy {
   private subs = new Subscription();
@@ -26,12 +33,17 @@ export class ReportingComponent implements OnInit, OnDestroy {
   filter!: Filter;
   dateFrom?: Date;
   dateTo?: Date;
-  constructor(private reportingService: ReportingService) {}
+
+  constructor(
+    private reportingService: ReportingService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.subs.add(
       this.reportingService.getAllClasses().subscribe((classes) => {
         this.classes = classes;
+        this.cdr.detectChanges();
       })
     );
   }
@@ -61,6 +73,7 @@ export class ReportingComponent implements OnInit, OnDestroy {
           .subscribe((data) => {
             this.activities = data;
             this.chartData = getBarChartData(data);
+            this.cdr.detectChanges();
           });
       }
     }

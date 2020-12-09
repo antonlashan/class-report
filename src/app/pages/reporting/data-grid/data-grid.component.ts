@@ -1,4 +1,9 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+} from '@angular/core';
 import {
   Filter,
   FormattedData,
@@ -10,6 +15,7 @@ import {
   selector: 'app-data-grid',
   templateUrl: './data-grid.component.html',
   styleUrls: ['./data-grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataGridComponent implements OnChanges {
   @Input() activities!: FormattedData[];

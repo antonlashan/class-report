@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -9,7 +10,6 @@ import {
   NgbDate,
   NgbCalendar,
   NgbDateParserFormatter,
-  NgbDatepicker,
   NgbInputDatepicker,
 } from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,6 +22,7 @@ export interface PickerData {
   selector: 'app-datepicker-range',
   templateUrl: './datepicker-range.component.html',
   styleUrls: ['./datepicker-range.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DatepickerRangeComponent {
   hoveredDate: NgbDate | null = null;
