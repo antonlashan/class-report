@@ -11,9 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container
-        *ngIf="activities | filterStudents: filter.studentName; let items"
-      >
+      <ng-container *ngIf="activities | filterStudents: studentName; let items">
         <tr *ngFor="let activity of items">
           <td>
             {{ activity.date | date }}
@@ -22,7 +20,7 @@
           <td>{{ activity.type }}</td>
           <td>{{ activity.skill }}</td>
           <td>
-            <span [ngStyle]="{ color: strenthColors[activity.strength] }"
+            <span [appStrengthColor]="activity.strength"
               >{{ activity.value }}%</span
             >
           </td>
@@ -30,8 +28,8 @@
         </tr>
         <tr *ngIf="items.length === 0">
           <td colspan="6">
-            <span *ngIf="filter.studentName; else defaultMsg"
-              >No content has been completed by {{ filter.studentName }} for
+            <span *ngIf="studentName; else defaultMsg"
+              >No content has been completed by {{ studentName }} for
               {{ fromDate | date }} to {{ toDate | date }}</span
             >
             <ng-template #defaultMsg>No data</ng-template>

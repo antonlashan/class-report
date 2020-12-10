@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BarVerticalComponent } from '@swimlane/ngx-charts';
+import { MockComponent } from 'ng-mocks';
 
 import { StatsComponent } from './stats.component';
 
@@ -8,7 +10,7 @@ describe('StatsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StatsComponent],
+      declarations: [StatsComponent, MockComponent(BarVerticalComponent)],
     }).compileComponents();
   });
 

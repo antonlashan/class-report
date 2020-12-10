@@ -14,8 +14,8 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 export interface PickerData {
-  from: NgbDate;
-  to: NgbDate;
+  from: Pick<NgbDate, 'year' | 'month' | 'day'>;
+  to: Pick<NgbDate, 'year' | 'month' | 'day'>;
 }
 
 @Component({

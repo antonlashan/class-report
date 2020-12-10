@@ -13,7 +13,7 @@ export interface Activity {
   content: string;
   attempts: {
     weeks: string[];
-    values: string[];
+    values: number[];
   };
   student: string;
   time: string;
@@ -106,7 +106,7 @@ export const normalizeData = (
   return formattedData;
 };
 
-const createDateObj = (year: number, month: number, day: number) => {
+export const createDateObj = (year: number, month: number, day: number) => {
   let newYr = year;
   if (year.toString().length < 4) {
     newYr += 2000;

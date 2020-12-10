@@ -4,12 +4,7 @@ import {
   Input,
   OnChanges,
 } from '@angular/core';
-import {
-  Filter,
-  FormattedData,
-  getDateObjs,
-  strenthColors,
-} from '../reporting';
+import { Filter, FormattedData, getDateObjs } from '../reporting';
 
 @Component({
   selector: 'app-data-grid',
@@ -20,14 +15,15 @@ import {
 export class DataGridComponent implements OnChanges {
   @Input() activities!: FormattedData[];
   @Input() filter!: Filter;
-  strenthColors = strenthColors();
 
   fromDate!: Date;
   toDate!: Date;
+  studentName!: string | null;
 
   ngOnChanges() {
     // tslint:disable-next-line: no-non-null-assertion
     const { from, to } = getDateObjs(this.filter.daterange!);
+    this.studentName = this.filter.studentName;
     this.fromDate = from;
     this.toDate = to;
   }

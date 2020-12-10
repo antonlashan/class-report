@@ -1,19 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { NonAuthenticateComponent } from './non-authenticate.component';
+import { NonAuthLayoutComponent } from './non-authenticate.component';
 
 describe('NonAuthenticateComponent', () => {
-  let component: NonAuthenticateComponent;
-  let fixture: ComponentFixture<NonAuthenticateComponent>;
+  let component: NonAuthLayoutComponent;
+  let fixture: ComponentFixture<NonAuthLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NonAuthenticateComponent],
+      declarations: [NonAuthLayoutComponent],
+      imports: [RouterTestingModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NonAuthenticateComponent);
+    fixture = TestBed.createComponent(NonAuthLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

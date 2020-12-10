@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { DatepickerRangeComponent } from './datepicker-range.component';
 
@@ -9,6 +10,7 @@ describe('DatepickerRangeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DatepickerRangeComponent],
+      imports: [NgbDatepickerModule],
     }).compileComponents();
   });
 

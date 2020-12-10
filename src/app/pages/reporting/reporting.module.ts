@@ -10,6 +10,7 @@ import { DataGridComponent } from './data-grid/data-grid.component';
 import { DatepickerRangeModule } from '../../shared/datepicker-range/datepicker-range.module';
 import { ReportingService } from './reporting.service';
 import { FilterStudentsPipe } from './data-grid/filter.pipe';
+import { StrengthColorDirective } from './data-grid/strength-color.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FilterStudentsPipe } from './data-grid/filter.pipe';
     StatsComponent,
     DataGridComponent,
     FilterStudentsPipe,
+    StrengthColorDirective,
   ],
   imports: [
     CommonModule,

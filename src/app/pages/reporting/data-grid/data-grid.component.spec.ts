@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DataGridComponent } from './data-grid.component';
+import { FilterStudentsPipe } from './filter.pipe';
+import { StrengthColorDirective } from './strength-color.directive';
 
 describe('DataGridComponent', () => {
   let component: DataGridComponent;
@@ -8,7 +10,11 @@ describe('DataGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DataGridComponent],
+      declarations: [
+        DataGridComponent,
+        FilterStudentsPipe,
+        StrengthColorDirective,
+      ],
     }).compileComponents();
   });
 
